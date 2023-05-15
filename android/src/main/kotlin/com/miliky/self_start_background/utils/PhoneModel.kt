@@ -1,0 +1,21 @@
+package com.miliky.self_start_background.utils
+
+/**
+ *
+ *
+ * @Author: Miliky
+ * @Date: 2023/5/15 14:51
+ * @Description: [爱意随风起，风止意难平。]
+ */
+enum class PhoneModel {
+    ZTE,
+    VIVO,
+    SONY,
+    OPPO,
+    MEIZU,
+    HUAWEI,
+    XIAOMI,
+    LENOVO,
+    SAMSUNG,
+    COOLPAD
+}
