@@ -16,7 +16,7 @@ object CheckPhoneModel {
      *  Get Phone Model
      *  if not find PhoneModel return null
      */
-    fun getPhoneModel(): PhoneModel? {
+    fun getPhoneModel(): PhoneModel {
        return when(Build.BRAND.lowercase(Locale.getDefault())){
            "zte" -> PhoneModel.ZTE
            "vivo" -> PhoneModel.VIVO
@@ -28,7 +28,7 @@ object CheckPhoneModel {
            "huawei", "honor" -> PhoneModel.HUAWEI
            "xiaomi", "redmi", "mi" -> PhoneModel.XIAOMI
            "oppo", "oneplus", "realme" -> PhoneModel.OPPO
-           else -> null
+           else -> PhoneModel.UNKNOW
        }
     }
 

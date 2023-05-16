@@ -1,7 +1,6 @@
 package com.miliky.self_start_background
 
 import android.content.Context
-import android.os.Build
 import com.miliky.self_start_background.ssbManager.BackgroundManager
 import com.miliky.self_start_background.ssbManager.SelfStartManager
 import com.miliky.self_start_background.utils.CheckPhoneModel.getPhoneModel
@@ -12,7 +11,6 @@ import io.flutter.plugin.common.MethodChannel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.util.*
 
 class SSBHandler(messenger: BinaryMessenger, context: Context) : MethodChannel.MethodCallHandler {
 
@@ -50,7 +48,7 @@ class SSBHandler(messenger: BinaryMessenger, context: Context) : MethodChannel.M
     }
 
     private fun onGetPhoneModel(result: MethodChannel.Result) {
-        val phoneModel: String = (getPhoneModel() ?: Build.BRAND.lowercase(Locale.getDefault())) as String
+        val phoneModel: String = getPhoneModel()!!.toStrValue()
         return result.success(phoneModel)
     }
 
@@ -61,8 +59,8 @@ class SSBHandler(messenger: BinaryMessenger, context: Context) : MethodChannel.M
         } else {
             var coroutineScope = CoroutineScope(Dispatchers.Main)
             coroutineScope.launch {
-                val openBackgroundSettion = backgroundManager.openBackgroundSetting(phoneModel)
-                result.success(openBackgroundSettion)
+                val openBackgroundSetting = backgroundManager.openBackgroundSetting(phoneModel)
+                result.success(openBackgroundSetting)
             }
         }
     }

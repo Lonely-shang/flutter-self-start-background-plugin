@@ -1,5 +1,8 @@
 package com.miliky.self_start_background.utils
 
+import android.os.Build
+import java.util.*
+
 /**
  *
  *
@@ -17,5 +20,24 @@ enum class PhoneModel {
     XIAOMI,
     LENOVO,
     SAMSUNG,
-    COOLPAD
+    COOLPAD,
+
+    UNKNOW;
+
+
+    fun toStrValue(): String{
+       return when(this) {
+          ZTE -> "zte"
+          VIVO -> "vivo"
+          SONY -> "sony"
+          OPPO -> "oppo"
+          MEIZU -> "meizu"
+          HUAWEI -> "huawei"
+          XIAOMI -> "xiaomi"
+          LENOVO -> "lenovo"
+          SAMSUNG -> "samsung"
+          COOLPAD -> "coolpad"
+          else -> Build.BRAND.lowercase(Locale.getDefault())
+       }
+    }
 }
