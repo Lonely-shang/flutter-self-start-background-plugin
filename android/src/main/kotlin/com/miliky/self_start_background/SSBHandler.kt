@@ -48,7 +48,7 @@ class SSBHandler(messenger: BinaryMessenger, context: Context) : MethodChannel.M
     }
 
     private fun onGetPhoneModel(result: MethodChannel.Result) {
-        val phoneModel: String = getPhoneModel()!!.toStrValue()
+        val phoneModel: String = getPhoneModel().toStrValue()
         return result.success(phoneModel)
     }
 

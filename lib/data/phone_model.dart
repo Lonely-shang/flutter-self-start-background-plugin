@@ -1,6 +1,0 @@
-
- enum PhoneModel {
-    "zte"
-    ""
-
- }
