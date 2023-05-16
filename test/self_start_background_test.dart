@@ -7,9 +7,25 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 class MockSelfStartBackgroundPlatform
     with MockPlatformInterfaceMixin
     implements SelfStartBackgroundPlatform {
+  @override
+  Future<String> getPhoneModel() {
+    // TODO: implement getPhoneModel
+    throw UnimplementedError();
+  }
 
   @override
-  Future<String?> getPlatformVersion() => Future.value('42');
+  Future<bool> openBackgroundSetting() {
+    // TODO: implement openBackgroundSetting
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool> openSelfStartSetting() {
+    // TODO: implement openSelfStartSetting
+    throw UnimplementedError();
+  }
+
+
 }
 
 void main() {
@@ -19,11 +35,4 @@ void main() {
     expect(initialPlatform, isInstanceOf<MethodChannelSelfStartBackground>());
   });
 
-  test('getPlatformVersion', () async {
-    SelfStartBackground selfStartBackgroundPlugin = SelfStartBackground();
-    MockSelfStartBackgroundPlatform fakePlatform = MockSelfStartBackgroundPlatform();
-    SelfStartBackgroundPlatform.instance = fakePlatform;
-
-    expect(await selfStartBackgroundPlugin.getPlatformVersion(), '42');
-  });
 }

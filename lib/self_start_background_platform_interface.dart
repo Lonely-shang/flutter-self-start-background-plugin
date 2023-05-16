@@ -23,7 +23,17 @@ abstract class SelfStartBackgroundPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> getPlatformVersion() {
-    throw UnimplementedError('platformVersion() has not been implemented.');
+
+  Future<String> getPhoneModel() {
+    throw UnimplementedError('getPhoneModel() has not been implemented.');
   }
+
+  Future<bool> openSelfStartSetting() {
+    throw UnimplementedError('openSelfStartSetting() has not been implemented.');
+  }
+
+  Future<bool> openBackgroundSetting() {
+    throw UnimplementedError('openBackgroundSetting() has not been implemented.');
+  }
+
 }
