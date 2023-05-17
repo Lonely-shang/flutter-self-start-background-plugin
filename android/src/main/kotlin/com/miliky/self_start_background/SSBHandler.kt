@@ -48,7 +48,7 @@ class SSBHandler(messenger: BinaryMessenger, context: Context) : MethodChannel.M
     }
 
     private fun onGetPhoneModel(result: MethodChannel.Result) {
-        val phoneModel: String = getPhoneModel().toStrValue()
+        val phoneModel = getPhoneModel().toStrValue()
         return result.success(phoneModel)
     }
 
@@ -66,8 +66,8 @@ class SSBHandler(messenger: BinaryMessenger, context: Context) : MethodChannel.M
     }
 
     private fun onOpenSelfStartSetting(result: MethodChannel.Result) {
-        val phoneModel: PhoneModel? = getPhoneModel()
-        if (phoneModel == null) {
+        val phoneModel: PhoneModel = getPhoneModel()
+        if (phoneModel == PhoneModel.UNKNOWN) {
             result.success(false)
         } else {
             val openSelfStartSetting = selfStartManager.openSelfStartSetting(phoneModel)

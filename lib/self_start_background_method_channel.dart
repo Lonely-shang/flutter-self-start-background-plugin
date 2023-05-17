@@ -16,13 +16,12 @@ class MethodChannelSelfStartBackground extends SelfStartBackgroundPlatform {
   }
 
   @override
-  Future<bool> openBackgroundSetting() async{
-    return await methodChannel.invokeMethod("openSelfStartSetting");
-  }
-
-  @override
-  Future<bool> openSelfStartSetting() async{
+  Future<bool> openBackgroundSetting() async {
     return await methodChannel.invokeMethod("openBackgroundSetting");
   }
 
+  @override
+  Future<bool> openSelfStartSetting() async {
+    return await methodChannel.invokeMethod("openSelfStartSetting");
+  }
 }

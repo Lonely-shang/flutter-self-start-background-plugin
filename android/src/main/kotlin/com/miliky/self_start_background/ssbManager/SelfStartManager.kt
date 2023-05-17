@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
+import android.provider.Settings
 import androidx.core.content.ContextCompat.startActivity
 import com.miliky.self_start_background.utils.PhoneModel
 
@@ -52,9 +53,14 @@ class SelfStartManager {
                 intent.setClassName("com.android.settings", "com.android.settings.InstalledAppDetails");
                 intent.putExtra("com.android.settings.ApplicationPkgName", context.packageName);
             }
-            context.startActivity(intent)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(context, intent, null)
             true
-        } catch (e: Exception) { false }
+        } catch (e: Exception) {
+            println(e.message)
+            false
+        }
+
     }
 
     private fun openVivoSelfStartSetting(): Boolean {

@@ -28,7 +28,7 @@ object CheckPhoneModel {
            "huawei", "honor" -> PhoneModel.HUAWEI
            "xiaomi", "redmi", "mi" -> PhoneModel.XIAOMI
            "oppo", "oneplus", "realme" -> PhoneModel.OPPO
-           else -> PhoneModel.UNKNOW
+           else -> PhoneModel.UNKNOWN
        }
     }
 

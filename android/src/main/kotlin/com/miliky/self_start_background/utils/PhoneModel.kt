@@ -22,7 +22,7 @@ enum class PhoneModel {
     SAMSUNG,
     COOLPAD,
 
-    UNKNOW;
+    UNKNOWN;
 
 
     fun toStrValue(): String{
@@ -40,4 +40,5 @@ enum class PhoneModel {
           else -> Build.BRAND.lowercase(Locale.getDefault())
        }
     }
+
 }

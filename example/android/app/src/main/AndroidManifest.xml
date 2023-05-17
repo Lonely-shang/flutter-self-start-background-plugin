@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.miliky.self_start_background_example">
+          package="com.miliky.self_start_background_example">
    <application
         android:label="self_start_background_example"
         android:name="${applicationName}"

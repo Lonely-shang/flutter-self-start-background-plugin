@@ -53,7 +53,8 @@ class BackgroundManager {
     private fun openOppoBgSetting(): Boolean {
         return try {
             val intent = Intent(Settings.ACTION_BATTERY_SAVER_SETTINGS)
-            context.startActivity(intent)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(context, intent, null)
             true
         } catch (e: Exception) { false }
     }

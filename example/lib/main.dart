@@ -36,16 +36,39 @@ class _MyAppState extends State<MyApp> {
             children: [
               Text(phoneModel),
               MaterialButton(
-                  onPressed: () async{
-                    var getPhoneModel = await SelfStartBackground.getPhoneModel;
-                    setState(() {
-                      phoneModel = getPhoneModel;
-                    });
-                  },
+                color: Colors.blue,
+                textColor: Colors.white,
+                onPressed: () async {
+                  var getPhoneModel = await SelfStartBackground.getPhoneModel;
+                  var val = await getPhoneModel.value();
+                  setState(() {
+                    phoneModel = val;
+                  });
+                },
                 child: const Text("getPhoneModel"),
+              ),
+              MaterialButton(
+                color: Colors.blue,
+                textColor: Colors.white,
+                onPressed: () async {
+                  await SelfStartBackground.openSelfStartSetting;
+                },
+                child: const Text("openSelfStartSetting"),
+              ),
+              MaterialButton(
+                color: Colors.blue,
+                textColor: Colors.white,
+                shape: const RoundedRectangleBorder(
+                  side: BorderSide.none,
+                  borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                ),
+                onPressed: () async {
+                  await SelfStartBackground.openBackgroundSetting;
+                },
+                child: const Text("openBackgroundSetting"),
               )
             ],
-          )
+          ),
         ),
       ),
     );
